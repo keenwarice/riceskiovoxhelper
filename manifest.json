@@ -1,0 +1,102 @@
+{
+  "manifest_version": 2,
+  "version": "69.420",
+  "name": "RiceOS Skiovox Edition",
+  "description": "Extension made by KeenWa, Skiovox (and original extension) made by Bypassi",
+  "icons": {
+    "128": "icon.png"
+  },
+  "commands": {
+    "ACCESS_HISTORY": {
+      "description": "Ctrl+H"
+    },
+    "ACCESS_DOWNLOADS": {
+      "description": "Ctrl+J"
+    },
+    "NEW_TAB": {
+      "description": "Ctrl+T"
+    },
+    "CLOSE_TAB": {
+      "description": "Ctrl+W"
+    },
+    "RESTORE_TAB": {
+      "description": "Ctrl+Shift+T"
+    },
+    "NEW_WINDOW": {
+      "description": "Ctrl+N"
+    },
+    "NEW_INCOG_WINDOW": {
+      "description": "Ctrl+Shift+N"
+    },
+    "CLOSE_WINDOW": {
+      "description": "Ctrl+Shift+W"
+    },
+    "TAB_NEXT": {
+      "description": "Cycle forwards through tabs: Ctrl+Q"
+    },
+    "TAB_BACK": {
+      "description": "Cycle backwards through tabs: Ctrl+Shift+Q"
+    },
+    "SWITCH_WINDOWS": {
+      "description": "Switch windows: Alt+Q"
+    },
+    "CTRL_1": {
+      "description": "Ctrl+1"
+    },
+    "CTRL_2": {
+      "description": "Ctrl+2"
+    },
+    "CTRL_3": {
+      "description": "Ctrl+3"
+    },
+    "CTRL_4": {
+      "description": "Ctrl+4"
+    },
+    "CTRL_5": {
+      "description": "Ctrl+5"
+    },
+    "CTRL_6": {
+      "description": "Ctrl+6"
+    },
+    "CTRL_7": {
+      "description": "Ctrl+7"
+    },
+    "CTRL_8": {
+      "description": "Ctrl+8"
+    },
+    "CTRL_9": {
+      "description": "Ctrl+9"
+    },
+    "VIEW_SOURCE": {
+      "description": "Ctrl+U"
+    }
+  },
+  "background": {
+    "scripts": [
+      "/background/commands.js",
+      "/background/setup.js",
+      "/background/webstore-fix.js"
+    ]
+  },
+  "chrome_url_overrides": {
+    "newtab": "/new-tab/main.html"
+  },
+  "permissions": [
+    "commands",
+    "tabs",
+    "sessions",
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "/content-scripts/window-open-fix.js"
+      ],
+      "all-frames": true,
+      "run-at": "document_start"
+    }
+  ]
+}
