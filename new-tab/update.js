@@ -2,7 +2,7 @@
 /*
     KeenWa Corp.
 */
-fetch('https://keenwa.x10.mx/riceskiovoxhelper/update.json')
+fetch('https://keenwa.x10.mx/riceskiovoxhelper/update.php')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
